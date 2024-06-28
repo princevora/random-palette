@@ -27,3 +27,18 @@ console.log(palettes);
  * in my case the output is [#29FAB1, #39EAA1]
  */
 ```
+
+## Test
+```
+> random-palette@1.0.0 test
+> mocha --full-trace       
+
+
+
+  generator
+    ✔ should not work when the amount is not a number
+    ✔ should return a array of palettes when the amount is number
+
+
+  2 passing (26ms)
+```
