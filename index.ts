@@ -1,13 +1,14 @@
 /**
- * @function { generatePalette }
+ * @function { generatePalettes }
  * 
  * @param { number } amount  Amount stands for the number of palettes should be generated.
  * @returns { string }
  */
 
-function generatePalette(amount: number = 5): string {
-    
-    if(typeof amount !== "number" || amount <= 0) return "Please provide valid amount";
+function generatePalettes(amount: number = 5): string | string[] {
+
+    if (typeof amount !== "number") return "Please provide valid amount";
+    if (amount < 1) amount = 1;
 
     // VALID_PALETTE_CHARS Are the Characters that used in creating palettes
     const VALID_PALETTE_CHARS: string = "0123456789ABCDEF";
@@ -15,34 +16,45 @@ function generatePalette(amount: number = 5): string {
     // VALID_PALETTE_LENGTH Is the numeric length of a normal color palette
     const PALETTE_LENGTH: number = 6;
 
-    let COLOR_PALETTE: string = "#";
+    const generatePalette = (): string => {
 
-    // Run the loop for 6 times..
-    for (let index = 0; index < PALETTE_LENGTH; index++) {
+        // Initial value for color palette
+        let COLOR_PALETTE: string = "#";
 
-        /**
-         * First of all we are generating a random number between 0 to 1
-         * Then we are multipliying It by 16 as our VALID_PALETTE_CHARS 's length is 15 
-         * And then we are retriving a absolute / Nearest number of the previous number => [Math.random() * 15]
-         */
-        const PALETTE_INDEX = Math.round(Math.random() * 15);
+        // Run the loop for palette_length's times
+        for (let index = 0; index < PALETTE_LENGTH; index++) {
 
-        /**
-         * Get the palette char for the palette index
-         */
-        const PALETTE_CHAR = VALID_PALETTE_CHARS[PALETTE_INDEX];
+            /**
+             * First of all we are generating a random number between 0 to 1
+             * Then we are multipliying It by 16 as our VALID_PALETTE_CHARS 's length is 15 
+             * And then we are retriving a absolute / Nearest number of the previous number => [Math.random() * 15]
+             */
+            const PALETTE_INDEX = Math.round(Math.random() * 15);
 
-        /**
-         * Join the palette char to the color
-         */
+            /**
+             * Get the palette char for the palette index
+             */
+            const PALETTE_CHAR = VALID_PALETTE_CHARS[PALETTE_INDEX];
 
-        COLOR_PALETTE += PALETTE_CHAR;
+            /**
+             * Join the palette char to the color
+             */
+
+            COLOR_PALETTE += PALETTE_CHAR;
+        }
+
+        return COLOR_PALETTE;
+    }
+
+    const COLOR_PALETTES: string[] = [];
+
+    // Run the loop for amount'th times..
+    for (let i = 1; i <= amount; i++) {
+        COLOR_PALETTES.push(generatePalette());
     }
 
     // Return the color palette
-    return COLOR_PALETTE;
+    return COLOR_PALETTES;
 }
 
-console.log(generatePalette());
-
-module.exports = generatePalette;
+module.exports = generatePalettes;

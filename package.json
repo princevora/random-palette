@@ -2,22 +2,34 @@
   "name": "random-palette",
   "version": "1.0.0",
   "description": "Simple Random Color palette Generator",
+  "homepage": "https://github.com/princevora/random-palette",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsup index.ts --format cjs,esm --dts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "color",
+    "color_palettes",
+    "random",
+    "generator",
+    "automated"
+  ],
+  "author": "PrinceVora (https://github.com/princevora/)",
+  "repository": "https://github.com/princevora/random-palette",
+  "license": "MIT",
   "devDependencies": {
+    "@changesets/cli": "^2.27.6",
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.9",
     "ts-node": "^10.9.2",
     "tsup": "^8.1.0",
     "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "mocha": "^10.5.2"
   }
 }
