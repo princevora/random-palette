@@ -1,2 +1,2 @@
-# random-palette
-Next JS Powered Random Color Palette Generator With simple api
+## Introduction 
+The random-palette package will help developers to generate random color palettes for Such Packages
