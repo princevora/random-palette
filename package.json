@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsup index.ts --format cjs,esm --dts",
-    "test": "mocha --full-trace  "
+    "test": "mocha --full-trace"
   },
   "keywords": [
     "color",
