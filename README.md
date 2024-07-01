@@ -6,7 +6,7 @@ The random-palette Package is available on the [npm](https://www.npmjs.com/packa
 
 Run the following command to install the package
 
-```bash
+```
 npm i random-palette
 ```
 
